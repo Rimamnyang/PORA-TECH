@@ -21,7 +21,6 @@ console.log(typeof w);
 let r = true
 console.log(typeof r);
 
-
 //operators
 let sum = a + b;
 console.log(sum);
@@ -31,7 +30,5 @@ let mul = a * b;
 console.log(mul);
 let div = a / b;
 console.log(div);
-let mod = a % b;
-console.log(mod);
 
 
