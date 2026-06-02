@@ -14,50 +14,71 @@
     <button id="click1">CLICK HERE</button>
     <br>
     <div class="container">
-        <label for="firstnam">First Name</label><br>
-        <input type="text" id="firstnam" placeholder="First Name"><br>
-        <label for="lastnam">Last Name</label><br>
-        <input type="text" id="lastnam" placeholder="Last Name"><br>
-        <label for="email">Email</label><br>
-        <input type="email" id="email" placeholder="Email"><br>
-        <label for="phone">Phone</label><br>
-        <input type="tel" id="phone" placeholder="Phone"><br>
-        <label for="address">Address</label><br>
-        <input type="text" id="address" placeholder="Address"><br>
-        <label for="message">Message</label><br>
-        <textarea type="text" id="message" cols="50" rows="5" placeholder="Message"></textarea><br>
+        <form id="contactForm">
+            <label for="firstnam">First Name</label><br>
+            <input type="text" id="firstnam" placeholder="First Name"><br>
+            <label for="lastnam">Last Name</label><br>
+            <input type="text" id="lastnam" placeholder="Last Name"><br>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" placeholder="Email"><br>
+            <label for="phone">Phone</label><br>
+            <input type="tel" id="phone" placeholder="Phone"><br>
+            <label for="address">Address</label><br>
+            <input type="text" id="address" placeholder="Address"><br>
+            <label for="feedback">Feedback</label><br>
+            <textarea type="text" id="feedback" cols="50" rows="5" placeholder="feedback"></textarea><br>
+            <button type="submit" id="sub1">Submit</button>
+        </form>
     </div>
     <br>
-    <button id="btn">Submit</button>
     <div id="box3">
-        <p>
-            Theme Change
-        </p>
+        <h3 style="text-align: center;">Theme Change</h3>
         <button id="button1">Light</button>
         <button id="button2">Dark</button>
         <button id="button3">Pink</button>
         <button id="button4">Blue</button>
     </div>
+    <div>
+        <h3>Results</h3> <br>
+        <p id="form-result"></p>
+    </div>
     <script>
-        document.getElementById('click1').addEventListener('click', function () {
-            document.getElementById('click1').textContent = 'you clicked';
-        });
-        document.getElementById('btn').addEventListener('click', function () {
-            document.getElementById('btn').textContent = "Submitted";
-        });
-        document.getElementById('button1').addEventListener('click', function () {
-            document.getElementById('body1').style.backgroundColor = 'white';
-        });
-        document.getElementById('button2').addEventListener('click', function () {
-            document.getElementById('body1').style.backgroundColor = 'black';
-        });
-        document.getElementById('button3').addEventListener('click', function () {
-            document.getElementById('body1').style.backgroundColor = 'pink';
-        });
-        document.getElementById('button4').addEventListener('click', function () {
-            document.getElementById('body1').style.backgroundColor = 'blue';
-        });
-
+        document.getElementById('click1').addEventListener('click',
+            function () {
+                document.getElementById('click1').textContent = 'you clicked';
+            });
+        document.getElementById('button1').addEventListener('click',
+            function () {
+                document.getElementById('body1').style.backgroundColor = 'white';
+                document.getElementById('body1').style.color = 'black';
+            });
+        document.getElementById('button2').addEventListener('click',
+            function () {
+                document.getElementById('body1').style.backgroundColor = 'black';
+                document.getElementById('body1').style.color = 'white';
+            });
+        document.getElementById('button3').addEventListener('click',
+            function () {
+                document.getElementById('body1').style.backgroundColor = 'pink';
+                document.getElementById('body1').style.color = 'black';
+            });
+        document.getElementById('button4').addEventListener('click',
+            function () {
+                document.getElementById('body1').style.backgroundColor = 'blue';
+                document.getElementById('body1').style.color = 'white';
+            });
+        //REASSIGNING INPUTS
+        document.getElementById('contactForm').addEventListener('submit',
+            function (event) {
+                const firstName = document.getElementById('firstnam').value;
+                const lastName = document.getElementById('lastnam').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const address = document.getElementById('address').value;
+                const feedback = document.getElementById('feedback').value;
+                document.getElementById("form-result").textContent =
+                    firstName + " " + lastName + " " + email + " " + phone + " " + address + " " + feedback;
+            });
     </script>
 </body>
 
