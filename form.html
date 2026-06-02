@@ -69,16 +69,19 @@
             });
         //REASSIGNING INPUTS
         document.getElementById('contactForm').addEventListener('submit',
-            function (event) {
+            function (event) { event.preventDefault();
                 const firstName = document.getElementById('firstnam').value;
                 const lastName = document.getElementById('lastnam').value;
                 const email = document.getElementById('email').value;
                 const phone = document.getElementById('phone').value;
                 const address = document.getElementById('address').value;
                 const feedback = document.getElementById('feedback').value;
-                document.getElementById("form-result").textContent =
-                    firstName + " " + lastName + " " + email + " " + phone + " " + address + " " + feedback;
-            });
+            
+                const result = firstName + " " + lastName + " " + email + " " + phone + " " + address + " " + feedback;
+                document.getElementById("form-result").textContent = result;
+            }
+        );
+        
     </script>
 </body>
 
