@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Counter</title>
+</head>
+
+<body>
+
+    <h1 id="count1">0</h1>
+
+    <button onclick="decrease()">-</button>
+    <button onclick="increase()">+</button>
+    <button onclick="resetCounter()">Reset</button>
+
+    <script>
+        let count = 0;
+
+        function increase() {
+            count++;
+            document.getElementById("count1").textContent = count;
+        }
+
+        function decrease() {
+            count--;
+            document.getElementById("count1").textContent = count;
+        }
+
+        function resetCounter() {
+            count = 0;
+            document.getElementById("count").textContent = count;
+        }
+    </script>
+
+</body>
+
+</html>
