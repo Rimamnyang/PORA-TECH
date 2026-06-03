@@ -27,7 +27,7 @@
             <input type="text" id="address" placeholder="Address"><br>
             <label for="feedback">Feedback</label><br>
             <textarea type="text" id="feedback" cols="50" rows="5" placeholder="feedback"></textarea><br>
-            <button type="submit" id="sub1">Submit</button>
+            <button onclick="validateLastnam()" type="submit" id="sub1">Submit</button>
         </form>
     </div>
     <br>
@@ -69,19 +69,26 @@
             });
         //REASSIGNING INPUTS
         document.getElementById('contactForm').addEventListener('submit',
-            function (event) { event.preventDefault();
+            function (event) {
+                event.preventDefault();
                 const firstName = document.getElementById('firstnam').value;
                 const lastName = document.getElementById('lastnam').value;
                 const email = document.getElementById('email').value;
                 const phone = document.getElementById('phone').value;
                 const address = document.getElementById('address').value;
                 const feedback = document.getElementById('feedback').value;
-            
-                const result = firstName + " " + lastName + " " + email + " " + phone + " " + address + " " + feedback;
+                const result = firstName + " " + lastName + " " + " : " + feedback;
                 document.getElementById("form-result").textContent = result;
             }
-        );
-        
+        )
+
+        function validateLastnam() {
+            let userName = document.getElementById('lastnam').value;
+            if (userName === '') {
+                alert('Last Name Cannot be Empty')
+            }
+        }
+
     </script>
 </body>
 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>
+        Student Registration Form
+    </h2>
+    <form id="registerForm">
+        <input type="text" id="name" placeholder="Full Name">
+        <br><br>
+
+        <input type="email" id="email" placeholder="Email">
+        <br><br>
+
+        <input type="password" id="password" placeholder="Password">
+        <br><br>
+
+        <button type="submit">Register</button>
+
+        <p id="message"></p>
+    </form>
+    <style>
+        body {
+            background-color: rgb(78, 62, 151);
+            color: aliceblue;
+        }
+
+        button {
+            background-color: aqua;
+        }
+    </style>
+    <script>
+        document.getElementById("registerForm")
+            .addEventListener("submit", function (event) {
+
+                event.preventDefault();
+
+                let name = document.getElementById("name").value;
+                let email = document.getElementById("email").value;
+                let password = document.getElementById("password").value;
+
+                let message = document.getElementById("message");
+
+                if (name === "") {
+                    message.textContent = "Name is required";
+                    return;
+                }
+
+                if (!email.includes("@")) {
+                    message.textContent = "Invalid email";
+                    return;
+                }
+
+                if (password.length < 8) {
+                    message.textContent = "Password too short";
+                    return;
+                }
+
+                message.textContent =
+                    "Registration Successful!";
+            })
+    </script>
+</body>
+
+</html>
