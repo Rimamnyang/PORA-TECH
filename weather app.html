@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="city"><br>
+    <button onclick="getWeather()">Search</button> <br>
+
+    <div id="result"></div>
+    <style>
+        body {
+            background-color: rgb(16, 100, 100);
+            color: aliceblue;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        
+            border: none;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            background-color: aqua;
+            color: black;
+        }
+    </style>
+
+    <script>
+        async function getWeather() {
+
+            let city =
+                document.getElementById('city').value;
+
+            try {
+
+                let response =
+                    await fetch(
+                        `https://wttr.in/${city}?format=j1`
+                    );
+
+                let data = await response.json();
+
+                let temperature =
+                    data.current_condition[0].temp_C;
+
+                document.getElementById('result')
+                    .innerHTML =
+                    `<h2>${city}</h2>
+      <p>Temperature: ${temperature}°C</p>`;
+
+            } catch (error) {
+
+                console.log(error);
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>
